@@ -4,6 +4,7 @@ import { useState } from "react";
 import User from "../components/pages/User";
 import Error from "../components/pages/Error";
 import axios from "axios";
+import Info from "../components/pages/Info";
 
 const Detalhes = () => {
   const [user, setUser] = useState<UserProps | null >(null);
@@ -19,19 +20,18 @@ const Detalhes = () => {
 
       const data = res.data;
 
-        const {avatar_url, login, location, name} = data;
+        const {avatar_url, login, location, name, id, followers, repos, repos_list} = data;
 
         const userData: UserProps = {
           avatar_url,
           login,
           location,
           name,
-          id: 0,
-          followers: 0,
-          repos: 0,
-          repos_list: []
+          id,
+          followers,
+          repos,
+          repos_list
         }
-    
       setUser(userData);
 
     } catch(e) {
@@ -46,7 +46,8 @@ const Detalhes = () => {
     
     <div>
       {/* <h1>{loadUser()}</h1> */}
-      <Search loadUser={loadUser} />
+      {/*<Search loadUser={loadUser} />*/}
+      <h1>{user?.avatar_url}</h1>
       {user && <User {...user} />}
       {error && <Error />}
     </div>
