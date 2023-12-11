@@ -19,17 +19,17 @@ const Home = () => {
 
       const data = res.data;
 
-        const {avatar_url, login, location, name} = data;
+        const {avatar_url, login, location, name, id, followers, repos, repos_list} = data;
 
         const userData: UserProps = {
           avatar_url,
           login,
           location,
           name,
-          id: 0,
-          followers: 0,
-          repos: 0,
-          repos_list: []
+          id,
+          followers,
+          repos,
+          repos_list
         }
     
       setUser(userData);

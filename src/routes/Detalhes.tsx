@@ -43,7 +43,9 @@ const Detalhes = () => {
   };
 
   return (
+    
     <div>
+      {/* <h1>{loadUser()}</h1> */}
       <Search loadUser={loadUser} />
       {user && <User {...user} />}
       {error && <Error />}

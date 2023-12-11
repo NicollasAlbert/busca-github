@@ -71,7 +71,7 @@ const User = ({
 }: UserProps) => {
   return (
     <SectionEstilizada>
-        <Link to={`/detalhes/${login}`}><img src={avatar_url} alt={login} /></Link>
+        <Link to={`/${login}`}><img src={avatar_url} alt={login} /></Link>
         <h2>{login}</h2>
         {location && (
             <p>
