@@ -10,7 +10,6 @@ const MainEstilizado = styled.main `
 `;
 
 function App() {
-
   return (
     <>
     <EstilosGlobais />

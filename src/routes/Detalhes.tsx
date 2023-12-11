@@ -4,7 +4,6 @@ import { useState } from "react";
 import User from "../components/pages/User";
 import Error from "../components/pages/Error";
 import axios from "axios";
-import Info from "../components/pages/Info";
 
 const Detalhes = () => {
   const [user, setUser] = useState<UserProps | null >(null);
@@ -45,8 +44,8 @@ const Detalhes = () => {
   return (
     
     <div>
-      {/* <h1>{loadUser()}</h1> */}
-      {/*<Search loadUser={loadUser} />*/}
+      <h1></h1>
+      <Search loadUser={loadUser} />
       <h1>{user?.avatar_url}</h1>
       {user && <User {...user} />}
       {error && <Error />}

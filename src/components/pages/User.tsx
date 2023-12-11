@@ -88,5 +88,4 @@ const User = ({
     </SectionEstilizada>
   )
 }
-
 export default User

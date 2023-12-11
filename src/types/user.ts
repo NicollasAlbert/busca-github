@@ -7,4 +7,4 @@ export type UserProps = {
     followers: number;
     repos: number;
     repos_list: Array<string>;
-};
+}
