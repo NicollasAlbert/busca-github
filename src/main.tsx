@@ -22,7 +22,7 @@ const router = createBrowserRouter([
         element: <BuscaRecente />,
       },
       {
-        path: "/:login",
+        path: "/user/:userName",
         element: <Detalhes />,
       }
     ],

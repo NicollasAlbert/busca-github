@@ -7,7 +7,7 @@ import { BsSearch } from 'react-icons/bs';
 import styled from "styled-components";
 
 const SectionEstilizado = styled.section `
-  background-color: #2b3566;
+  background-color: #31304D;
   padding: 2rem;
   border-radius: 1rem;
   display: flex;
@@ -17,7 +17,7 @@ const SectionEstilizado = styled.section `
   gap: 1rem;
   margin-bottom: 1.5rem;
   p {
-      color: #9da5d1;
+      color: #B6BBC4;
   }
 `;
 
@@ -31,7 +31,7 @@ const DivEstilizado = styled.div `
       color: #2b3566;
   }
   button {
-      background-color: #0e1129;
+      background-color: #161A30;
       cursor: pointer;
   }
 `;

@@ -5,6 +5,6 @@ export type UserProps = {
     location: string;
     id: number;
     followers: number;
-    repos: number;
+    public_repos: number;
     repos_list: Array<string>;
 }

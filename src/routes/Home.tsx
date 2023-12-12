@@ -1,54 +1,63 @@
-import { UserProps } from "../types/user";
-import Search from "../components/pages/Search";
-import { useState } from "react";
-import User from "../components/pages/User";
-import Error from "../components/pages/Error";
-import axios from "axios";
+import { FC, useState } from 'react';
+import Search from '../components/pages/Search';
+import User from '../components/pages/User';
+import Error from '../components/pages/Error';
+import { useNavigate } from 'react-router-dom';
+import { UserProps } from '../types/user';
+import api from '../services/api';
 
-const Home = () => {
-  const [user, setUser] = useState<UserProps | null >(null);
+const Home: FC = () => {
+  const [user, setUser] = useState<UserProps | null>(null);
   const [error, setError] = useState(false);
+  const navigate = useNavigate();
 
-  const loadUser = async(userName: string) => {
-    setError(false);
-    setUser(null);
 
-    try{
-      
-      const res = await axios.get(`https://api.github.com/users/${userName}`)
+const loadUser = async (userName: string) => {
+  setError(false);
+  setUser(null);
 
-      const data = res.data;
+  try {
+    const res = await api.get(`/users/${userName}`);
 
-        const {avatar_url, login, location, name, id, followers, repos, repos_list} = data;
+    const data = res.data;
 
-        const userData: UserProps = {
-          avatar_url,
-          login,
-          location,
-          name,
-          id,
-          followers,
-          repos,
-          repos_list
-        }
-    
-      setUser(userData);
+    const { avatar_url, login, location, name, id, followers, public_repos, repos_list } = data;
 
-    } catch(e) {
-      setError(true);
-      console.log(e);
-      return;
-      
-    }
+    const userData: UserProps = {
+      avatar_url,
+      login,
+      location,
+      name,
+      id,
+      followers,
+      public_repos,
+      repos_list,
+    };
+
+    setUser(userData);
+  } catch (e) {
+    setError(true);
+    console.error(e);
+    return;
+  }
+};
+
+
+  const navigateToDetails = (userName: string) => {
+    navigate(`/user/${userName}`);
   };
 
   return (
     <div>
       <Search loadUser={loadUser} />
-      {user && <User {...user} />}
+      {user && (
+        <div>
+          <User {...user} onClick={() => navigateToDetails(user.login)} />
+        </div>
+      )}
       {error && <Error />}
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

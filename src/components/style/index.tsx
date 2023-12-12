@@ -11,7 +11,7 @@ const EstilosGlobais = createGlobalStyle`
   }
   
   body {
-    background-color: #021129;
+    background-color: #161A30;
   }
   
   p {

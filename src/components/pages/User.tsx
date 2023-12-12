@@ -1,11 +1,12 @@
+import { FC } from "react";
 import { UserProps } from "../../types/user";
 import { MdLocationPin } from "react-icons/md";
 import { Link } from "react-router-dom";
 
 import styled from "styled-components";
 
-const SectionEstilizada = styled.section `
-    background-color: #2b3566;
+const SectionContainer = styled.section `
+    background-color: #161A30;
     padding: 2rem;
     border-radius: 1rem;
     display: flex;
@@ -16,7 +17,7 @@ const SectionEstilizada = styled.section `
     img {
         width: 140px;
         height: 140px;
-        border: 4px solid #644aff;
+        border: 4px solid #31304D;
         border-radius: 50%;
     }
     p {
@@ -29,7 +30,7 @@ const SectionEstilizada = styled.section `
         font-size: 1.5rem;
     }
     p span {
-        color: #9da5d1;
+        color: #B6BBC4;
         font-weight: bold;
     }
     a {
@@ -43,7 +44,7 @@ const SectionEstilizada = styled.section `
     }
 `;
 
-const DivEstilizado = styled.div `
+const DivContainer = styled.div `
     display: flex;
     div {
         padding: 0 1rem;
@@ -55,37 +56,46 @@ const DivEstilizado = styled.div `
         justify-content: center;
     }
     .name {
-        background-color: #9da5d1;
+        background-color: #B6BBC4;
         padding: .4rem .8rem;
         border-radius: 3px;
-        color: #17191f;
+        color: #161A30;
     }
         
 `;
 
-const User = ({
+type UserPropsWithOnClick = UserProps & {
+    onClick?: () => void;
+  };
+  
+  const User: FC<UserPropsWithOnClick> = ({
     login,
     avatar_url,
     location,
-    name
-}: UserProps) => {
-  return (
-    <SectionEstilizada>
-        <Link to={`/${login}`}><img src={avatar_url} alt={login} /></Link>
-        <h2>{login}</h2>
+    name,
+  }: UserPropsWithOnClick) => {
+    return (
+      <SectionContainer>
+        <Link to={`/user/${login}`}>
+          <img src={avatar_url} alt={login} />
+        </Link>
+        <h2>
+          <Link to={`/${login}`}>{login}</Link>
+        </h2>
         {location && (
-            <p>
+          <p>
             <MdLocationPin />
             <span>{location}</span>
-        </p>
+          </p>
         )}
-        <DivEstilizado>
-            <div>
-                <p>Nome:</p>
-                <p className="name">{name}</p>
-            </div>
-        </DivEstilizado>
-    </SectionEstilizada>
-  )
-}
-export default User
+        <DivContainer>
+          <div>
+            <p>Nome:</p>
+            <span className="name">{name}</span>
+          </div>
+        </DivContainer>
+      </SectionContainer>
+    );
+  };
+  
+  export default User;
