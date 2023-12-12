@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const SectionContainer = styled.section `
-    background-color: #161A30;
+    background-color: #31304D;
     padding: 2rem;
     border-radius: 1rem;
     display: flex;
