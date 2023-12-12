@@ -6,7 +6,7 @@ import { useState, KeyboardEvent } from 'react';
 import { BsSearch } from 'react-icons/bs';
 import styled from "styled-components";
 
-const SectionEstilizado = styled.section `
+const SectionContainer = styled.section `
   background-color: #31304D;
   padding: 2rem;
   border-radius: 1rem;
@@ -21,7 +21,7 @@ const SectionEstilizado = styled.section `
   }
 `;
 
-const DivEstilizado = styled.div `
+const DivContainer = styled.div `
   display: flex;
   gap: 0.5rem;
   input, button {
@@ -45,17 +45,17 @@ const Search = ({ loadUser }: SearchProps) => {
   }
 
   return (
-    <SectionEstilizado>
+    <SectionContainer>
         <h2>Busque por um usuário:</h2>
-        <DivEstilizado>
+        <DivContainer>
             <input type="text" placeholder='Digite o nome do usuário' onChange={(e) => setUserName(e.target.value)}
             onKeyDown={handleKeyDown}
             />
             <button onClick={() => loadUser(userName)}>
                 <BsSearch />
             </button>
-        </DivEstilizado>
-    </SectionEstilizado>
+        </DivContainer>
+    </SectionContainer>
   )
 }
 

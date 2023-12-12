@@ -5,6 +5,7 @@ import Error from '../components/pages/Error';
 import { useNavigate } from 'react-router-dom';
 import { UserProps } from '../types/user';
 import api from '../services/api';
+import addProfileToHistory from '../components/pages/UsuariosRecentes';
 
 const Home: FC = () => {
   const [user, setUser] = useState<UserProps | null>(null);
@@ -35,6 +36,9 @@ const loadUser = async (userName: string) => {
     };
 
     setUser(userData);
+
+    addProfileToHistory(userName);
+    
   } catch (e) {
     setError(true);
     console.error(e);

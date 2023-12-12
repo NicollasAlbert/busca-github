@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-const HeaderEstilizado = styled.header `
+const HeaderContainer = styled.header `
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -10,7 +10,7 @@ const HeaderEstilizado = styled.header `
     font-size: 1.25rem;
 `;
 
-const NavbarEstilizado = styled.nav `
+const NavbarContainer = styled.nav `
     ul {
         display: flex;
         gap: 1rem;
@@ -19,9 +19,9 @@ const NavbarEstilizado = styled.nav `
 
 const Navbar = () => {
     return (
-        <HeaderEstilizado>
+        <HeaderContainer>
             <Link to={`/`}><h1>Buscador GitHub</h1></Link>
-            <NavbarEstilizado>
+            <NavbarContainer>
                 <ul>
                     <li>
                         <Link to={`/`}>Home</Link>
@@ -30,8 +30,8 @@ const Navbar = () => {
                         <Link to={`/recentes`}>Recentes</Link>
                     </li>
                 </ul>
-            </NavbarEstilizado>
-        </HeaderEstilizado>
+            </NavbarContainer>
+        </HeaderContainer>
     )
 }
 

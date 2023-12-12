@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import { IRepoProps } from '../types/IRepoProps';
 
 const DetalhesContainer = styled.section`
-background-color: #161A30;
+background-color: #31304D;
 padding: 2rem;
 border-radius: 1rem;
 display: flex;
